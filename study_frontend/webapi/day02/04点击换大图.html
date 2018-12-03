@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="images/1.jpg" style="width:200px; height:200px" id="pic">
+    <img src="" alt="" style="width:800px; height:800px" id = "pic1">
+    <script>
+        var imgObj = document.getElementById("pic");
+        imgObj.onclick = function() {
+            document.getElementById("pic1").src = "images/1.jpg";
+        }
+    
+    </script>
+</body>
+</html>

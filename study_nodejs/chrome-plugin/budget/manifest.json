@@ -1,0 +1,19 @@
+{
+    "manifest_version":2,
+    "name": "budget manager",
+    "version": "1.0",
+    "description": "hello world extension",
+    "icons": {
+        "36": "./icons/icon36.png"  
+    },
+    "browser_action":{
+        "default_icon": "./icons/icon36.png",
+        "default_popup": "popup.html"
+    },
+    "options_page": "options.html",
+
+    "permissions":[
+        "storage"
+    ]
+
+}

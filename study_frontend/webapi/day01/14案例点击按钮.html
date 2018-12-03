@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="change" id="btn1">
+    <input type="radio" name="sex" value="1">male
+    <input type="radio" name="sex" value="2" id="h">female
+    <input type="radio" name="sex" value="3">no
+
+    <script>
+        var btn1 = document.getElementById("btn1");
+        function my$(id) {
+            return document.getElementById(id);
+        }
+        btn1.onclick = function() {
+            my$("h").checked = true;
+        }
+    
+    </script>
+
+    <input type="button" value="change2" id="btn2">
+    <input type="checkbox" name="hobby" value="1">吃饭
+    <input type="checkbox" name="hobby" value="1" id="eat">吃饭
+    <input type="checkbox" name="hobby" value="1">吃饭
+    <input type="checkbox" name="hobby" value="1">吃饭
+    <input type="checkbox" name="hobby" value="1">吃饭
+    <input type="checkbox" name="hobby" value="1" id="eat2">吃饭
+
+    <script>
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function() {
+            my$("eat").checked = true;
+            my$("eat2").checked = true;
+        }
+    </script>
+</body>
+</html>

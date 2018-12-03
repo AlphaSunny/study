@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 3000px;
+}
+
+.inner {
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+    line-height: 100px
+}
+
+.nav li a {
+    text-decoration: none;
+    color: black;
+    
+}
+.nav li a:hover {
+    color: skyblue;
+}
+.logo {
+    float: left;   
+}
+
+.nav li {
+    float: left;
+    list-style: none;
+    margin: 0 20px;
+
+}
+.nav {
+    float: right;
+}
+
+.banner {
+    width: 1440px;
+    height: 620px;
+    background: url(../images/banner.jpg) no-repeat top center;
+}
+
+.service {
+    width: 1055px;
+    height: 650px;
+    margin: 75px auto 0;
+}
+
+.service_hd {
+    border-top: 1px solid #ccc;
+	margin: 0 25px;
+}
+
+.service_hd h3 {
+	width: 167px;
+	height: 46px;
+	margin: -15px auto 0;
+	
+}

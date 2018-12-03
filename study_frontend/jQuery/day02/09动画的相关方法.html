@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 200px;
+            height: 200px;
+            background-color: deeppink;
+        }
+    </style>
+    <script src="jquery-1.12.1.js"></script>
+    <script>
+        $(function() {
+            $("#btn").click(function() {
+                $("#dv").show(500, function() {
+                    alert("ok");
+                })
+            })
+            $("#btn1").click(function() {
+                $("#dv").hide(500, function() {
+                    alert("ok");
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="show">
+    <input type="button" id="btn1" value="hide">
+    <div id="dv"></div>
+</body>
+</html>

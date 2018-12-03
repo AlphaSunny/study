@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #u1 li {
+            background-color: orange;
+            list-style: none;
+        }
+        #u1 li {
+
+        }
+
+        #u1 li ul li {
+            background-color: pink;
+        }
+    </style>
+    <script src="jquery-1.12.1.js"></script>
+    <script>
+        $(function() {
+            $("#u1>li>ul").hide();
+            $("#u1>li").click(function() {
+                $(this).children("ul").show(500);
+                $(this).siblings("li").children("ul").hide(500);
+            })
+        })
+    
+    </script>
+</head>
+<body>
+    <div style="width: 200px; height: 500px; border: 1px solid red;">
+        <ul id="u1">
+            <li>
+                幼儿园同学
+                <ul>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                </ul>
+            </li>
+            <li>
+                初中同学
+                <ul>
+                    <li>2</li>
+                    <li>2</li>
+                    <li>2</li>
+                    <li>2</li>
+                </ul>
+            </li>
+            <li>
+                高中同学
+                <ul>
+                    <li>3</li>
+                    <li>3</li>
+                    <li>3</li>
+                    <li>3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

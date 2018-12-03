@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="images/taobao.jpg" id="icon">
+    <img src="" alt="" id="qrcode">
+
+    <script>
+        var icon = document.getElementById("icon");
+        icon.onmouseover = function() {
+            document.getElementById("qrcode").src = "images/456.png";
+        }
+
+        icon.onmouseleave = function() {
+            document.getElementById("qrcode").src = "";
+        }
+        
+    </script>
+</body>
+</html>

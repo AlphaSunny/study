@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .cls {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="on/off" id="btn">
+    <script src="jquery-1.12.1.min.js"></script>
+    <script>
+        $("#btn").click(function() {
+            if($("body").hasClass("cls")) {
+                $("body").removeClass("cls");
+            } else {
+                $("body").addClass("cls");
+            }
+        })
+    </script>
+</body>
+</html>

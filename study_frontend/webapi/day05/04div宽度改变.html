@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="dv">
+
+    </div>
+    <script src="common.js"></script>
+    <script>
+        width=200;
+        var timeId = setInterval(function() {
+            width= width +10;
+            if(width>=800) {
+                clearInterval(timeId);
+            }  
+            my$("dv").style.width = width + "px";
+            
+        },10)
+    </script>
+</body>
+</html>

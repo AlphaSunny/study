@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            display: inline;
+
+        }
+        img {
+            height: 100px;
+            width: 125px;
+        }
+    </style>
+</head>
+<body>
+    <p>画廊</p>
+    <div>
+        <ul id="gallery">
+            <li><img src="images/1.jpg"></li>
+            <li><img src="images/2.jpg"></li>
+            <li><img src="images/3.jpg"></li>
+            <li><img src="images/4-small.jpg"></li>
+        </ul>
+        <div>
+            <img src="images/placeholder.png" id="pl" style="width:500px; height:400px">
+        </div>
+
+        
+    </div>
+
+    <script>
+        var objs = document.getElementById("gallery").getElementsByTagName("li");
+        for(var i=0; i<objs.length; i++) {
+            
+            objs[i].getElementsByTagName("img")[0].onclick = function() {
+                document.getElementById("pl").src = this.src;
+            }
+        }
+    </script>
+</body>
+</html>

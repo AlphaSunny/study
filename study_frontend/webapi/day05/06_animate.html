@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+        input {
+            position: absolute;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="dv">
+
+    </div>
+    <input type="button" id="btn" value="move">
+    <script src="common.js"></script>
+    <script>
+    
+        function animate(element, dest) {
+            clearInterval(element.timeId);
+            element.timeId = setInterval(function() {
+                var current = element.offsetLeft;
+                var step = 10;
+                step = current<dest ? step:-step;
+                current+=step;
+                console.log(dest);
+
+                if (Math.abs(current - dest) > Math.abs(step)) {
+                    element.style.left = current + "px";
+                } else {
+                    //清理定时器
+                    clearInterval(element.timeId);
+                    //直接到达目标
+                    element.style.left = dest + "px";
+                }
+            }, 20); 
+        }
+        my$("btn").onclick = function() {
+            animate(my$("dv"),500);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="jquery-1.12.1.js">
+    </script>
+    <script>
+        $(function() {
+            $("#btn").click(function() {
+                $("#dv").remove();
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="remove">
+    <div id="dv">
+        yang
+        
+    </div>
+</body>
+</html>

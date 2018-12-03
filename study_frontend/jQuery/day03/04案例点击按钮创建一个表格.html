@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv {
+            height: 500px;
+            width: 500px;
+            border: 1px solid red;
+        }
+    
+    </style>
+    <script src="jquery-1.12.1.js"></script>
+    <script>
+        var arr = [
+            {"name":"传智播客","href":"http://www.itcast.cn"},
+            {"name":"快播","href":"http://www.kuaibo.cn"},
+            {"name":"优酷","href":"http://www.youku.cn"},
+            {"name":"爱奇艺","href":"http://www.iqiyi.cn"},
+            {"name":"B站","href":"http://www.bili.cn"},
+            {"name":"土豆","href":"http://www.tudou.cn"}
+        ]
+        $(function() {
+            $("#btn").click(function() {
+                var table = $("<table style='cursor: pointer' border='1' cellspacing='0' cellpadding='0'></table>");
+                $("#dv").append(table);
+                for(var i=0; i<arr.length; i++) {
+                    var dt = arr[i];
+                    var tr = $("<tr></tr>");
+                    table.append(tr);
+                    var td1 = $("<td>"+dt.name+"</td>");
+                    tr.append(td1);
+                    var td2 = $("<td><a href='"+dt.href +"'>" + dt.name + "</a></td>");
+                    tr.append(td2);
+                    tr.mouseenter(function() {
+                        $(this).css("backgroundColor", "green");
+                    }).mouseleave(function() {
+                        $(this).css("backgroundColor", "");
+                    })          
+                }
+            })
+
+            $("#btn1").click(function() {
+                $("#dv").children("table").remove();
+            })
+            $("#btn2").click(function() {
+                var tr = "<tr><td>腾讯</td><td><a href='http://www.tengxun.com'>腾讯</a></td></tr>";
+                $("#dv").children("table").append(tr);
+            })
+        })
+    
+    </script>
+
+</head>
+<body>
+    <input type="button" id="btn" value="add">
+    <input type="button" id="btn1" value="remove">
+    <input type="button" id="btn2" value="add one">
+    <div id="dv"></div>
+</body>
+</html>

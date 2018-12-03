@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <input type="button" value="change" id="btn">
+
+    <div id="div1">
+
+    </div>
+
+    <script src="common.js"></script>
+    <script>
+        my$("btn").onclick = function() {
+            my$("div1").style.height = "400px";
+            my$("div1").style.width = "400px";
+            my$("div1").style.backgroundColor = "pink";
+        }
+
+        
+    
+    </script>
+    
+</body>
+</html>

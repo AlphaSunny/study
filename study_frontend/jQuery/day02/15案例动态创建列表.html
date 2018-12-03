@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    div{
+      width: 300px;
+      height: 600px;
+      border: 2px dotted darkgreen;
+    }
+  </style>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+
+    /*
+    * 内置对象:js中系统自带的,Array,Object,Date,Math,RegExp
+    * 浏览器对象:window
+    * 自定义对象:自己定义的构造函数创建的对象
+    * DOM对象:通过DOM方式获取的对象
+    * jQuery对象:通过jQuery方式获取的对象
+    *
+    *
+    * */
+
+    //数组中有十个人的名字
+    $(function () {
+      var array=["风斯托罗斯基","小苏坨萝斯基","助教坨萝斯基","尼古拉斯凯奇赵四","小胖妞","杰森斯坦森班主任","小明","小红","小李","小白","小绿","小黑"];
+
+      //根据id选择器获取按钮,添加点击事件
+      $("#btn").click(function () {
+        //先创建ul加入到div中
+        var ulObj=$("<ul style='cursor: pointer'></ul>").appendTo($("#dv"));
+        //创建li标签,加入到ul中---循环遍历数组
+        for(var i=0;i<array.length;i++){
+          $("<li>"+array[i]+"</li>").appendTo(ulObj).mouseenter(function () {
+            $(this).css("backgroundColor","darkgreen");
+          }).mouseleave(function () {
+            $(this).css("backgroundColor","");
+          });
+        }
+
+
+
+      });
+
+
+
+    });
+    //点击按钮的时候实现
+    //在div中动态的创建列表
+  </script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv"></div>
+
+</body>
+</html>

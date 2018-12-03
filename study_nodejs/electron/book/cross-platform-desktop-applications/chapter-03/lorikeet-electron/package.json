@@ -1,0 +1,14 @@
+{
+  "name": "lorikeet",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "async": "^2.1.4",
+    "electron": "^2.0.5",
+    "lunr": "^0.7.2",
+    "osenv": "^0.1.4"
+  }
+}

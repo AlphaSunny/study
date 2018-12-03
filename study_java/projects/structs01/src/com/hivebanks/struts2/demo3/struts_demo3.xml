@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <package name="demo3" extends="struts-default" namespace="/">
+        <action name="userFind" class="com.hivebanks.struts2.demo3.UserAction"  method="find"/>
+        <action name="userUpdate" class="com.hivebanks.struts2.demo3.UserAction" method="update"/>
+        <action name="userDelete" class="com.hivebanks.struts2.demo3.UserAction" method="delete"/>
+        <action name="userSave" class="com.hivebanks.struts2.demo3.UserAction" method="save"/>
+    </package>
+</struts>

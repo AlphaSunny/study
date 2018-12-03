@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .cls {  
+            background-color: red;
+        }
+    
+    
+    </style>
+
+</head>
+<body>
+    <p>6666</p>
+    <p class="cls">6666</p>
+    <span>6666</span><br/>
+    <span class="cls">6666</span><br/>
+    
+    <input type="button" id="btn" value="change">
+    <script src="common.js"></script>
+    <script>
+        var btn = my$("btn");
+        btn.onclick = function() {
+            var objs = document.getElementsByClassName("cls");
+            for(var i=0; i<objs.length; i++) {
+                objs[i].style.backgroundColor = "yellow";
+            }
+        }
+
+    
+    </script>
+</body>
+</html>

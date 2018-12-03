@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--配置sessionFactory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+
+        <property name="mappingResources">
+            <list>
+                <value>com/hivebanks/crm/domain/User.hbm.xml</value>
+                <value>com/hivebanks/crm/domain/Customer.hbm.xml</value>
+                <value>com/hivebanks/crm/domain/BaseDict.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 配置User -->
+    <bean id="userAction" class="com.hivebanks.crm.web.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean id="userService" class="com.hivebanks.crm.service.Impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="userDao" class="com.hivebanks.crm.dao.Impl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--配置Customer-->
+    <bean id="customerAction" class="com.hivebanks.crm.web.action.CustomerAction" scope="prototype">
+        <property name="customerService" ref="customerService"/>
+    </bean>
+    <bean id="customerService" class="com.hivebanks.crm.service.Impl.CustomerServiceImpl">
+        <property name="customerDao" ref="customerDao"/>
+    </bean>
+    <bean id="customerDao" class="com.hivebanks.crm.dao.Impl.CustomerDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+    <!--配置BaseDict-->
+    <bean id="baseDictAction" class="com.hivebanks.crm.web.action.BaseDictAction" scope="prototype">
+        <property name="baseDictService" ref="baseDictService"/>
+    </bean>
+    <bean id="baseDictService" class="com.hivebanks.crm.service.Impl.BaseDictServiceImpl" scope="prototype">
+        <property name="baseDictDao" ref="baseDictDao"/>
+    </bean>
+    <bean id="baseDictDao" class="com.hivebanks.crm.dao.Impl.BaseDictDaoImpl" scope="prototype">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 开启注解事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

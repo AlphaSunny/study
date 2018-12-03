@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    div{
+      width: 300px;
+      height: 200px;
+      border:1px solid red;
+    }
+  </style>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+    $(function () {
+
+      //点击按钮,创建元素
+      $("#btn").click(function () {
+        //把创建的span标签这个子元素直接插入到div中第一个子元素的前面
+        $("#dv").prepend($("<span>this is span</span>"));
+        //主动的方式
+        //$("<span>this is span</span>").prependTo($("#dv"));
+        //把元素添加到div的后面的位置,是div的下一个兄弟元素了
+        //$("#dv").after($("<span>this is span</span>"));
+        //把元素添加到div的前面的位置,是div的上一个兄弟元素了
+        //$("#dv").before($("<span>this is span</span>"));
+      });
+    });
+
+  </script>
+</head>
+<body>
+<input type="button" value="创建一个按钮" id="btn"/>
+<div id="dv">
+  <p>这是一个p</p>
+
+</div>
+<p>这是div后面的第一个子元素</p>
+
+</body>
+</html>

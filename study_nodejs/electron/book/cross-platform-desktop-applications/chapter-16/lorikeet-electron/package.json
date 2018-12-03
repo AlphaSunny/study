@@ -1,0 +1,26 @@
+{
+  "name": "lorikeet",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "Paul Jensen <paul@anephenix.com>",
+  "description": "A file explorer application",
+  "dependencies": {
+    "async": "^2.1.4",
+    "lunr": "^0.7.2",
+    "osenv": "^0.1.4"
+  },
+  "scripts": {
+		"cuke": "NODE_ENV=test node_modules/.bin/cuke",
+    "test": "NODE_ENV=test node_modules/.bin/mocha",
+    "pack": "build",
+    "dist": "build"
+  },
+  "devDependencies": {
+    "cucumber": "^2.0.0-rc.7",
+    "electron": "^1.4.14",
+    "electron-builder": "^11.4.4",
+    "mocha": "^3.2.0",
+    "spectron": "^3.5.0"
+  },
+  "build": {}
+}

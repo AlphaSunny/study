@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+    $(function () {
+      //点击按钮
+      $("#btn").click(function () {
+        //点一下,选中了,再点,就不再选中了,
+        if($("#ck").prop("checked")){
+          //选中了,就应该变成不是选中的状态
+          $("#ck").prop("checked",false);
+        }else{
+          $("#ck").prop("checked",true);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="选中/不选中" id="btn"/>
+<input type="checkbox" value="1" name="play" id="ck" />玩游戏
+
+</body>
+</html>

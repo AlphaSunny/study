@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+        image {
+            vertical-align: top;
+        }
+        .box {
+            width: 730px;
+            height: 454px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            padding: 5px;
+        }
+
+        .inner {
+            width: 730px;
+            height: 454px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .inner span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+        }
+        .square span.current {
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="inner">
+            <ul>
+                <li><a href="#"><img src="img/1.jpg"></a></li>
+                <li><a href="#"><img src="img/2.jpg"></a></li>
+                <li><a href="#"><img src="img/3.jpg"></a></li>
+                <li><a href="#"><img src="img/4.jpg"></a></li>
+                <li><a href="#"><img src="img/5.jpg"></a></li>
+                <li><a href="#"><img src="img/6.jpg"></a></li>
+            </ul>
+            <div class="square">
+                <span class="current">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <script src="common.js"></script>
+    <script>
+        
+
+        function animate(element, dest) {
+            clearInterval(element.timeId);
+            element.timeId = setInterval(function() {
+                var current = element.offsetLeft;
+                var step = 10;
+                step = current<dest ? step:-step;
+                current+=step;
+                console.log(dest);
+
+                if (Math.abs(current - dest) > Math.abs(step)) {
+                    element.style.left = current + "px";
+                } else {
+                    //清理定时器
+                    clearInterval(element.timeId);
+                    //直接到达目标
+                    element.style.left = dest + "px";
+                }
+            }, 20); 
+        }
+    </script>
+</body>
+</html>

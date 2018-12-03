@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div1">
+        <p>hah</p>
+        <p>hah</p>
+        <p>hah</p>
+        <p>hah</p>
+        <p>hah</p>
+        <p>hah</p>
+    </div>
+    <div class="div2">
+        <p>wo</p>
+        <p>wo</p>
+        <p>wo</p>
+        <p>wo</p>
+        <p>wo</p>
+        <p>wo</p>
+    </div>
+    <input type="button" value="change" id="btn">
+    <script>
+        btnObj = document.getElementById("btn");
+        btnObj.onclick = function() {
+            docp = document.getElementsByTagName("p");
+            for(var i=0; i<docp.length; i++) {
+                docp[i].innerText = "i love you"
+            }
+        }
+    </script>
+</body>
+</html>
