@@ -24,7 +24,7 @@ public class BaseDictAction extends ActionSupport implements ModelDriven<BaseDic
     private BaseDict baseDict = new BaseDict();
     @Override
     public BaseDict getModel() {
-        return null;
+        return baseDict;
     }
 
     private BaseDictService baseDictService;
@@ -36,13 +36,14 @@ public class BaseDictAction extends ActionSupport implements ModelDriven<BaseDic
     public String findByTypeCode() throws IOException
     {
         System.out.println("BaseDictAction中的findByTypeCode方法执行了");
+        System.out.println("baseDict " + baseDict.getDict_type_code());
         List<BaseDict> list = baseDictService.findByTypeCode(baseDict.getDict_type_code());
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.setExcludes(new String[]{"dict_sort", "dict_enable" , "dict_memo"});
         JSONArray jsonArray = JSONArray.fromObject(list, jsonConfig );
         System.out.println(jsonArray.toString());
 
-        ServletActionContext.getResponse().setContentType("text/html");
+        ServletActionContext.getResponse().setContentType("text/html;charset=UTF-8");
         ServletActionContext.getResponse().getWriter().println(jsonArray.toString());
         return NONE;
     }

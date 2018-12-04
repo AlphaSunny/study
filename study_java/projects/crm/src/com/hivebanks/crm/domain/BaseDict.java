@@ -11,8 +11,8 @@ public class BaseDict {
     private String dict_id;
     private String dict_type_code;
     private String dict_type_name;
-    private String item_name;
-    private String item_code;
+    private String dict_item_name;
+    private String dict_item_code;
     private int dict_sort;
     private String dict_enable;
     private String dict_memo;
@@ -41,20 +41,20 @@ public class BaseDict {
         this.dict_type_name = dict_type_name;
     }
 
-    public String getItem_name() {
-        return item_name;
+    public String getDict_item_name() {
+        return dict_item_name;
     }
 
-    public void setItem_name(String item_name) {
-        this.item_name = item_name;
+    public void setDict_item_name(String dict_item_name) {
+        this.dict_item_name = dict_item_name;
     }
 
-    public String getItem_code() {
-        return item_code;
+    public String getDict_item_code() {
+        return dict_item_code;
     }
 
-    public void setItem_code(String item_code) {
-        this.item_code = item_code;
+    public void setDict_item_code(String dict_item_code) {
+        this.dict_item_code = dict_item_code;
     }
 
     public int getDict_sort() {

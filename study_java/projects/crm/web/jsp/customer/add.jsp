@@ -8,12 +8,22 @@
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
 	rel=stylesheet>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.4.min.js"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.4.min.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$.post("${pageContext.request.contextPath}/baseDict_findByTypeCode.action", {"dict_type_code":"002"} ,function (data) {
-			    $(data).each(function (n,i) {
+			    $(data).each(function (i, n) {
 			        $("#custSource").append("<option value='"+n.dict_id+"'>"+n.dict_item_name+"</option>");
+                });
+            }, 'json');
+            $.post("${pageContext.request.contextPath}/baseDict_findByTypeCode.action", {"dict_type_code":"006"} ,function (data) {
+                $(data).each(function (i, n) {
+                    $("#custLevel").append("<option value='"+n.dict_id+"'>"+n.dict_item_name+"</option>");
+                });
+            }, 'json');
+            $.post("${pageContext.request.contextPath}/baseDict_findByTypeCode.action", {"dict_type_code":"001"} ,function (data) {
+                $(data).each(function (i, n) {
+                    $("#custIndustry").append("<option value='"+n.dict_id+"'>"+n.dict_item_name+"</option>");
                 });
             }, 'json');
         })
@@ -53,20 +63,20 @@
 								<TD height=2></TD>
 							</TR>
 						</TABLE>
-						
+
 						<TABLE cellSpacing=0 cellPadding=5  border=0>
 						  
 						    
 							<TR>
 								<td>客户名称：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_name">
+								<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_name">
 								</td>
 								<td>客户级别 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_level">
+							        <select id="custLevel" name="baseDictLevel.dict_id">
+                                        <option value="">--请选择--</option>
+                                    </select>
 								</td>
 							</TR>
 							
@@ -74,14 +84,15 @@
 								
 								<td>信息来源 ：</td>
 								<td>
-								    <select id="custSource">
+								    <select id="custSource" name="baseDictSource.dict_id">
                                         <option value="">--请选择--</option>
                                     </select>
 								</td>
 								<td>所属行业 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_industry">
+								    <select id="custIndustry" name="baseDictIndustry.dict_id">
+                                        <option value="">--请选择--</option>
+                                    </select>
 								</td>
 							</TR>
 							

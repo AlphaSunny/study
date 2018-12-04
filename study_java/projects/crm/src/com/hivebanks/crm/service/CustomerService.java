@@ -1,5 +1,9 @@
 package com.hivebanks.crm.service;
 
+import com.hivebanks.crm.domain.Customer;
+import com.hivebanks.crm.domain.PageBean;
+import org.hibernate.criterion.DetachedCriteria;
+
 /**
  * @Classname CustomerService
  * @Description TODO
@@ -8,4 +12,7 @@ package com.hivebanks.crm.service;
  */
 public interface CustomerService {
 
+    void save(Customer customer);
+
+    PageBean<Customer> findByPage(DetachedCriteria detachedCriteria, Integer currPage, Integer pageSize);
 }

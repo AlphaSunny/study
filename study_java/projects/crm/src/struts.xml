@@ -14,6 +14,7 @@
 
         <action name="customer_*" class="customerAction" method="{1}">
             <result name="saveUI">/jsp/customer/add.jsp</result>
+            <result name="findAll">/jsp/customer/list.jsp</result>
         </action>
 
         <action name="baseDict_*" class="baseDictAction" method="{1}">

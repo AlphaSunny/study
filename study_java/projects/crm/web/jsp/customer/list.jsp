@@ -89,19 +89,19 @@
 													<TD>手机</TD>
 													<TD>操作</TD>
 												</TR>
-												<s:iterator var="c" value="list">
+												<s:iterator value="list">
 												<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-													<TD><s:property value="#c.cust_name"/></TD>
-													<TD><s:property value="#c.cust_level"/></TD>
-													<TD><s:property value="#c.cust_source"/></TD>
-													<TD><s:property value="#c.cust_industry"/></TD>
-													<TD><s:property value="#c.cust_phone"/></TD>
-													<TD><s:property value="#c.cust_mobile"/></TD>
+													<TD><s:property value="cust_name"/></TD>
+													<TD><s:property value="baseDictLevel.dict_item_name"/></TD>
+													<TD><s:property value="baseDictSource.dict_item_name"/></TD>
+													<TD><s:property value="baseDictIndustry.dict_item_name"/></TD>
+													<TD><s:property value="cust_phone"/></TD>
+													<TD><s:property value="cust_mobile"/></TD>
 													<TD>
-													<a href="${pageContext.request.contextPath }/">修改</a>
+													<a href="${pageContext.request.contextPath }/customer_edit.action?cust_id = <s:property value="cust_id"/>">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/">删除</a>
+													<a href="${pageContext.request.contextPath }/customer_delete.action?cust_id = <s:property value="cust_id"/> ">删除</a>
 													</TD>
 												</TR>
 												</s:iterator>

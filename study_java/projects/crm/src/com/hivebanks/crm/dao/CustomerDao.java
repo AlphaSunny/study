@@ -1,5 +1,10 @@
 package com.hivebanks.crm.dao;
 
+import com.hivebanks.crm.domain.Customer;
+import org.hibernate.criterion.DetachedCriteria;
+
+import java.util.List;
+
 /**
  * @Classname CustomerDao
  * @Description TODO
@@ -7,4 +12,9 @@ package com.hivebanks.crm.dao;
  * @Created by pool
  */
 public interface CustomerDao {
+    void save(Customer customer);
+
+    Integer findCount(DetachedCriteria detachedCriteria);
+
+    List<Customer> findByPage(DetachedCriteria detachedCriteria, Integer begin, Integer pageSize);
 }
