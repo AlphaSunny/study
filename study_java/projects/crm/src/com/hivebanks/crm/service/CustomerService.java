@@ -4,6 +4,8 @@ import com.hivebanks.crm.domain.Customer;
 import com.hivebanks.crm.domain.PageBean;
 import org.hibernate.criterion.DetachedCriteria;
 
+import java.util.List;
+
 /**
  * @Classname CustomerService
  * @Description TODO
@@ -15,4 +17,6 @@ public interface CustomerService {
     void save(Customer customer);
 
     PageBean<Customer> findByPage(DetachedCriteria detachedCriteria, Integer currPage, Integer pageSize);
+
+    List<Customer> findAll();
 }

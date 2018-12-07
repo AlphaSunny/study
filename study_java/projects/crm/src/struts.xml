@@ -21,5 +21,9 @@
 
         </action>
 
+        <action name="linkman_*" class="linkmanAction" method="{1}">
+            <result name="saveUI">jsp/linkman/add.jsp</result>
+            <result name="saveSuccess" type="redirect">/jsp/linkman/list.jsp</result>
+        </action>
     </package>
 </struts>

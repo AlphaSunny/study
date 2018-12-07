@@ -77,6 +77,19 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <!--配置linkman-->
+    <bean id="linkmanAction" class="com.hivebanks.crm.web.action.LinkmanAction" scope="prototype">
+        <property name="linkmanService" ref="linkmanService"/>
+        <property name="customerService" ref="customerService"/>
+    </bean>
+    <bean id="linkmanService" class="com.hivebanks.crm.service.Impl.LinkmanServiceImlp" scope="prototype">
+        <property name="linkmanDao" ref="linkmanDao"/>
+    </bean>
+    <bean id="linkmanDao" class="com.hivebanks.crm.dao.Impl.LinkmanDaoImpl" scope="prototype">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>

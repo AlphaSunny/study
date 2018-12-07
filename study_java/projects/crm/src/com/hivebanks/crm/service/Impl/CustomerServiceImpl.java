@@ -51,6 +51,10 @@ public class CustomerServiceImpl implements CustomerService {
         return pageBean;
     }
 
+    @Override
+    public List<Customer> findAll() {
+        return  customerDao.findAll();
+    }
 
 
 }
