@@ -16,8 +16,59 @@
     </insert>
 
     <select id="getUserByQueryVo" parameterType="queryvo"
-            resultType="com.itheima.mybatis.pojo.User">
+            resultType="com.hivebanks.mybatis.pojo.User">
         SELECT * FROM user WHERE username LIKE '%${user.username}%'
+    </select>
+
+    <select id="getUserCount" resultType="int">
+        select count(*) from user
+    </select>
+
+    <select id="getUserByPojo" parameterType="user" resultType="user">
+        SELECT *
+        FROM user
+        <!-- WHERE username LIKE #{name} -->
+        <!-- WHERE 1 = 1 <if test="username != null and username != ''"> and username
+            LIKE '%${username}%' </if> <if test="sex != null and sex != ''"> and sex
+            = #{sex} </if> -->
+
+        <!-- <where>自动补上where关键字，同时处理多余and,用了where标签就不能再手动加上where关键字 -->
+        <where>
+            <if test="username != null and username != ''">
+                and username LIKE '%${username}%'
+            </if>
+            <if test="sex != null and sex != ''">
+                and sex = #{sex}
+            </if>
+        </where>
+    </select>
+
+    <select id="getUserByIds" parameterType="queryvo" resultType="user">
+        select * from user
+        <where>
+            <foreach collection="ids" open="id in(" item="uId" separator="," close=")">
+                #{uId}
+            </foreach>
+        </where>
+    </select>
+
+    <resultMap type="user" id="user_order_map">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="address" column="address"/>
+        <collection property="orders" ofType="com.hivebanks.mybatis.pojo.Order">
+            <id property="id" column="id"/>
+            <result property="userId" column="user_id"/>
+            <result property="number" column="number"/>
+            <result property="createTime" column="createtime"/>
+            <result property="note" column="note"/>
+        </collection>
+    </resultMap>
+
+    <select id="getUserOrderMap"  resultMap="user_order_map">
+        select u.id, u.username, u.birthday, u.sex, u.address, o.id oid,o.number, o.createtime, o.note from `user` u left join `order` o on u.`id` = o.`user_id`
     </select>
 
 

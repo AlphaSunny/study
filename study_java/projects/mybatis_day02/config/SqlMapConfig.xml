@@ -12,7 +12,7 @@
         <!-- 单个别名定义，别名的使用，不区分大小写 -->
         <!-- <typeAlias type="com.itheima.mybatis.pojo.User" alias="user"/> -->
         <!-- 别名包扫描器：别名是类的全称，不区分大小写，推荐方式 -->
-        <package name="com.itheima.mybatis.pojo"/>
+        <package name="com.hivebanks.mybatis.pojo"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">

@@ -20,4 +20,11 @@ public interface UserMapper {
 
     List<User> getUserByQueryVo(QueryVo vo);
 
+    Integer getUserCount();
+
+    List<User> getUserByPojo(User user);
+
+    List<User> getUserByIds(QueryVo vo);
+
+    List<User> getUserOrderMap();
 }
