@@ -9,5 +9,14 @@
 
 	<!-- 配置@Controller处理器，包扫描器 -->
 	<context:component-scan base-package="com.hivebanks.springmvc.controller" />
+	<mvc:annotation-driven/>
+
+
+    <!--视图解析器-->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+        
+	</bean>
 </beans>
 
