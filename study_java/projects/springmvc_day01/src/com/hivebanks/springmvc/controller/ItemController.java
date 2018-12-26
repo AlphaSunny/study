@@ -23,9 +23,8 @@ public class ItemController {
     public ModelAndView itemList()
     {
         ModelAndView mav = new ModelAndView();
-        List<Item> list =   Arrays.asList(new Item(1, "fridger", 1999, new Date(), "good"), new Item(2, "fridger",
-                1999, new Date(), "good"), new Item(3, "fridger", 1999, new Date(), "good"));
-        mav.addObject("itemList", list);
+
+
         mav.setViewName("itemList");
         return mav;
     }

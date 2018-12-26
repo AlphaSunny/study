@@ -18,7 +18,7 @@ public class HelloControl {
         System.out.println("hello");
         ModelAndView mav = new ModelAndView();
         mav.addObject("msg", "hello spring mvc");
-        mav.setViewName("/WEB-INF/jsp/hello.jsp");
+        mav.setViewName("hello");
         return mav;
     }
 }
