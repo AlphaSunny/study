@@ -50,6 +50,8 @@ print("computing recommendations...")
 testSet = BuildAntiTestSetForUser(testSubject, trainset)
 predictions = algo.test(testSet)
 
+recommendations = []
+
 print ("\nWe recommend:")
 for userID, movieID, actualRating, estimatedRating, _ in predictions:
     intMovieID = int(movieID)
